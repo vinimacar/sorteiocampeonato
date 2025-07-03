@@ -5,7 +5,7 @@ const selecoes = [
   { nome: "França", codigo: "fr" },
   { nome: "Itália", codigo: "it" },
   { nome: "Espanha", codigo: "es" },
-  { nome: "Inglaterra", codigo: "eng" }, // corrigido aqui
+  { nome: "Inglaterra", codigo: "gb-eng" }, // <-- corrigido aqui
   { nome: "Portugal", codigo: "pt" },
   { nome: "Holanda", codigo: "nl" },
   { nome: "Bélgica", codigo: "be" },
