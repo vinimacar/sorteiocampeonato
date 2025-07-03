@@ -5,7 +5,7 @@ const selecoes = [
   { nome: "França", codigo: "fr" },
   { nome: "Itália", codigo: "it" },
   { nome: "Espanha", codigo: "es" },
-  { nome: "Inglaterra", codigo: "gb" },
+  { nome: "Inglaterra", codigo: "eng" }, // corrigido aqui
   { nome: "Portugal", codigo: "pt" },
   { nome: "Holanda", codigo: "nl" },
   { nome: "Bélgica", codigo: "be" },
@@ -42,7 +42,7 @@ window.onload = function() {
     div.ondragstart = drag;
     div.dataset.nome = sel.nome;
     div.dataset.codigo = sel.codigo;
-    div.innerHTML = `<img src="https://flagcdn.com/w64/${sel.codigo}.png" width="32" class="me-2 rounded shadow-sm" alt="${sel.nome}"> ${sel.nome}`;
+    div.innerHTML = `<img src="https://flagcdn.com/w64/${sel.codigo}.png" width="32" class="me-2 rounded shadow-sm" alt="${sel.nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/w64/un.png';"> ${sel.nome}`;
     area.appendChild(div);
   });
 
@@ -90,7 +90,7 @@ function drop(ev) {
   div.draggable = true;
   div.dataset.nome = data.nome;
   div.dataset.codigo = data.codigo;
-  div.innerHTML = `<img src="https://flagcdn.com/w64/${data.codigo}.png" width="32" class="me-2 rounded shadow-sm" alt="${data.nome}"> ${data.nome}`;
+  div.innerHTML = `<img src="https://flagcdn.com/w64/${data.codigo}.png" width="32" class="me-2 rounded shadow-sm" alt="${data.nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/w64/un.png';"> ${data.nome}`;
   div.ondragstart = drag;
   target.appendChild(div);
   target.classList.remove("dragover");
@@ -139,7 +139,7 @@ function mostrarGrupos() {
     col.className = "col-md-3";
     let html = `<div class="grupo"><h6>Grupo ${letras[idx]}</h6>`;
     grupo.forEach(sel => {
-      html += `<div><img src="https://flagcdn.com/w64/${sel.codigo}.png" width="32" class="me-2 rounded shadow-sm" alt="${sel.nome}"> ${sel.nome}</div>`;
+      html += `<div><img src="https://flagcdn.com/w64/${sel.codigo}.png" width="32" class="me-2 rounded shadow-sm" alt="${sel.nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/w64/un.png';"> ${sel.nome}</div>`;
     });
     html += `</div>`;
     col.innerHTML = html;
@@ -175,3 +175,4 @@ function gerarTabela() {
     tabelaDiv.innerHTML += html;
   });
 }
+
