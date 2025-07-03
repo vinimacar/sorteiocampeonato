@@ -32,6 +32,27 @@ const selecoes = [
   { nome: "Arábia Saudita", codigo: "sa" },
   { nome: "Canadá", codigo: "ca" }
 ];
+function baixarImagem(url, nomeArquivo) {
+  fetch(url)
+    .then(response => response.blob())
+    .then(blob => {
+      const urlBlob = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = urlBlob;
+      link.download = nomeArquivo;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      URL.revokeObjectURL(urlBlob);
+    })
+    .catch(err => console.error('Erro ao baixar a imagem:', err));
+}
+
+// Exemplo de uso:
+baixarImagem('https://flagcdn.com/24x18/ua.png', 'ua_24x18.png');
+// Exemplo para baixar a bandeira da França:
+baixarImagem('https://flagcdn.com/w64/fr.png', 'franca.png');
+
 
 window.onload = function() {
   const area = document.getElementById("area-selecoes");
