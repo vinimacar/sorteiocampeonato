@@ -18,7 +18,32 @@
     <!-- Área de Seleções -->
     <div class="mb-4">
       <h5 class="fw-semibold">Seleções Classificadas</h5>
-      <div id="area-selecoes" class="d-flex flex-wrap gap-2 p-2 border rounded bg-light shadow-sm"></div>
+      <div id="area-selecoes-por-continente">
+        <div class="mb-3">
+          <h6 class="text-info">América do Sul</h6>
+          <div id="area-selecoes-sulamerica" class="d-flex flex-wrap gap-2 p-2 border rounded bg-light shadow-sm"></div>
+        </div>
+        <div class="mb-3">
+          <h6 class="text-info">Europa</h6>
+          <div id="area-selecoes-europa" class="d-flex flex-wrap gap-2 p-2 border rounded bg-light shadow-sm"></div>
+        </div>
+        <div class="mb-3">
+          <h6 class="text-info">África</h6>
+          <div id="area-selecoes-africa" class="d-flex flex-wrap gap-2 p-2 border rounded bg-light shadow-sm"></div>
+        </div>
+        <div class="mb-3">
+          <h6 class="text-info">Ásia</h6>
+          <div id="area-selecoes-asia" class="d-flex flex-wrap gap-2 p-2 border rounded bg-light shadow-sm"></div>
+        </div>
+        <div class="mb-3">
+          <h6 class="text-info">América do Norte/Central</h6>
+          <div id="area-selecoes-norte" class="d-flex flex-wrap gap-2 p-2 border rounded bg-light shadow-sm"></div>
+        </div>
+        <div class="mb-3">
+          <h6 class="text-info">Oceania</h6>
+          <div id="area-selecoes-oceania" class="d-flex flex-wrap gap-2 p-2 border rounded bg-light shadow-sm"></div>
+        </div>
+      </div>
       <div class="text-center mt-3">
         <button class="btn btn-info btn-lg shadow" onclick="distribuirAutomaticamente()">🔄 Distribuir Seleções Automaticamente</button>
       </div>
@@ -57,49 +82,89 @@
       <div class="col-md-3" id="grupoA-col">
         <div class="card shadow-sm">
           <div class="card-header bg-info text-white text-center fw-semibold">Grupo A</div>
-          <div id="grupoA" class="grupo-drop card-body min-vh-25"></div>
+          <div id="grupoA" class="grupo-drop card-body min-vh-25">
+            <div class="grupo-posicao" data-pos="1">Posição 1</div>
+            <div class="grupo-posicao" data-pos="2">Posição 2</div>
+            <div class="grupo-posicao" data-pos="3">Posição 3</div>
+            <div class="grupo-posicao" data-pos="4">Posição 4</div>
+          </div>
         </div>
       </div>
       <div class="col-md-3" id="grupoB-col">
         <div class="card shadow-sm">
           <div class="card-header bg-info text-white text-center fw-semibold">Grupo B</div>
-          <div id="grupoB" class="grupo-drop card-body min-vh-25"></div>
+          <div id="grupoB" class="grupo-drop card-body min-vh-25">
+            <div class="grupo-posicao" data-pos="1">Posição 1</div>
+            <div class="grupo-posicao" data-pos="2">Posição 2</div>
+            <div class="grupo-posicao" data-pos="3">Posição 3</div>
+            <div class="grupo-posicao" data-pos="4">Posição 4</div>
+          </div>
         </div>
       </div>
       <div class="col-md-3" id="grupoC-col">
         <div class="card shadow-sm">
           <div class="card-header bg-info text-white text-center fw-semibold">Grupo C</div>
-          <div id="grupoC" class="grupo-drop card-body min-vh-25"></div>
+          <div id="grupoC" class="grupo-drop card-body min-vh-25">
+            <div class="grupo-posicao" data-pos="1">Posição 1</div>
+            <div class="grupo-posicao" data-pos="2">Posição 2</div>
+            <div class="grupo-posicao" data-pos="3">Posição 3</div>
+            <div class="grupo-posicao" data-pos="4">Posição 4</div>
+          </div>
         </div>
       </div>
       <div class="col-md-3" id="grupoD-col">
         <div class="card shadow-sm">
           <div class="card-header bg-info text-white text-center fw-semibold">Grupo D</div>
-          <div id="grupoD" class="grupo-drop card-body min-vh-25"></div>
+          <div id="grupoD" class="grupo-drop card-body min-vh-25">
+            <div class="grupo-posicao" data-pos="1">Posição 1</div>
+            <div class="grupo-posicao" data-pos="2">Posição 2</div>
+            <div class="grupo-posicao" data-pos="3">Posição 3</div>
+            <div class="grupo-posicao" data-pos="4">Posição 4</div>
+          </div>
         </div>
       </div>
       <div class="col-md-3" id="grupoE-col">
         <div class="card shadow-sm">
           <div class="card-header bg-info text-white text-center fw-semibold">Grupo E</div>
-          <div id="grupoE" class="grupo-drop card-body min-vh-25"></div>
+          <div id="grupoE" class="grupo-drop card-body min-vh-25">
+            <div class="grupo-posicao" data-pos="1">Posição 1</div>
+            <div class="grupo-posicao" data-pos="2">Posição 2</div>
+            <div class="grupo-posicao" data-pos="3">Posição 3</div>
+            <div class="grupo-posicao" data-pos="4">Posição 4</div>
+          </div>
         </div>
       </div>
       <div class="col-md-3" id="grupoF-col">
         <div class="card shadow-sm">
           <div class="card-header bg-info text-white text-center fw-semibold">Grupo F</div>
-          <div id="grupoF" class="grupo-drop card-body min-vh-25"></div>
+          <div id="grupoF" class="grupo-drop card-body min-vh-25">
+            <div class="grupo-posicao" data-pos="1">Posição 1</div>
+            <div class="grupo-posicao" data-pos="2">Posição 2</div>
+            <div class="grupo-posicao" data-pos="3">Posição 3</div>
+            <div class="grupo-posicao" data-pos="4">Posição 4</div>
+          </div>
         </div>
       </div>
       <div class="col-md-3" id="grupoG-col">
         <div class="card shadow-sm">
           <div class="card-header bg-info text-white text-center fw-semibold">Grupo G</div>
-          <div id="grupoG" class="grupo-drop card-body min-vh-25"></div>
+          <div id="grupoG" class="grupo-drop card-body min-vh-25">
+            <div class="grupo-posicao" data-pos="1">Posição 1</div>
+            <div class="grupo-posicao" data-pos="2">Posição 2</div>
+            <div class="grupo-posicao" data-pos="3">Posição 3</div>
+            <div class="grupo-posicao" data-pos="4">Posição 4</div>
+          </div>
         </div>
       </div>
       <div class="col-md-3" id="grupoH-col">
         <div class="card shadow-sm">
           <div class="card-header bg-info text-white text-center fw-semibold">Grupo H</div>
-          <div id="grupoH" class="grupo-drop card-body min-vh-25"></div>
+          <div id="grupoH" class="grupo-drop card-body min-vh-25">
+            <div class="grupo-posicao" data-pos="1">Posição 1</div>
+            <div class="grupo-posicao" data-pos="2">Posição 2</div>
+            <div class="grupo-posicao" data-pos="3">Posição 3</div>
+            <div class="grupo-posicao" data-pos="4">Posição 4</div>
+          </div>
         </div>
       </div>
     </div>
@@ -171,3 +236,4 @@
   </script>
 </body>
 </html>
+
