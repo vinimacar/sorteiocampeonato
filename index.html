@@ -62,12 +62,6 @@
     <!-- Tabela de Jogos -->
     <div id="tabela" class="mt-4"></div>
 
-    <!-- Flag do Brasil -->
-    <div class="text-center mt-4">
-      <img src="https://www.countryflags.com/wp-content/uploads/br-flag-png-large.png" width="40" alt="Brasil">
-    </div>
-  </div>
- 
   <!-- Script -->
   <script src="script.js"></script>
   <script>
@@ -79,14 +73,14 @@
 
     // Exemplo de uso da linha de código fornecida
     var div = document.getElementById('area-selecoes');
-    div.innerHTML = `<img src="https://flagcdn.com/w40/${data.codigo}.png" srcset="https://flagcdn.com/w80/${data.codigo}.png 2x" width="40" alt="${data.nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/w40/un.png';"> ${data.nome}`;
+    div.innerHTML = `<img src="https://flagcdn.com/40x30/${data.codigo}.png" srcset="https://flagcdn.com/40x30/${data.codigo}.png 2x" width="40" alt="${data.nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${data.nome}`;
     
     // Nova linha de código sugerida
-    html += `<div><img src="https://flagcdn.com/w40/${sel.codigo}.png" srcset="https://flagcdn.com/w80/${sel.codigo}.png 2x" width="40" alt="${sel.nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/w40/un.png';"> ${sel.nome}</div>`;
+    html += `<div><img src="https://flagcdn.com/40x30/${sel.codigo}.png" srcset="https://flagcdn.com/40x30/${sel.codigo}.png 2x" width="40" alt="${sel.nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${sel.nome}</div>`;
 
     jogos.push(
-      `<img src="https://flagcdn.com/w40/${grupo[i].codigo}.png" srcset="https://flagcdn.com/w80/${grupo[i].codigo}.png 2x" width="40" alt="${grupo[i].nome}"> ${grupo[i].nome} x ` +
-      `<img src="https://flagcdn.com/w40/${grupo[j].codigo}.png" srcset="https://flagcdn.com/w80/${grupo[j].codigo}.png 2x" width="40" alt="${grupo[j].nome}"> ${grupo[j].nome}`
+      `<img src="https://flagcdn.com/40x30/${grupo[i].codigo}.png" srcset="https://flagcdn.com/40x30/${grupo[i].codigo}.png 2x" width="40" alt="${grupo[i].nome}"> ${grupo[i].nome} x ` +
+      `<img src="https://flagcdn.com/40x30/${grupo[j].codigo}.png" srcset="https://flagcdn.com/40x30/${grupo[j].codigo}.png 2x" width="40" alt="${grupo[j].nome}"> ${grupo[j].nome}`
     );
 
     let html = "";
