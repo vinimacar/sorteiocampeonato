@@ -19,6 +19,9 @@
     <div class="mb-4">
       <h5 class="fw-semibold">Seleções Classificadas</h5>
       <div id="area-selecoes" class="d-flex flex-wrap gap-2 p-2 border rounded bg-light shadow-sm"></div>
+      <div class="text-center mt-3">
+        <button class="btn btn-info btn-lg shadow" onclick="distribuirAutomaticamente()">🔄 Distribuir Seleções Automaticamente</button>
+      </div>
     </div>
 
     <!-- Potes -->
@@ -65,7 +68,7 @@
   <!-- Script -->
   <script src="script.js"></script>
   <script>
-  
+    
     // Exemplo de uso da linha de código fornecida
     var div = document.getElementById('area-selecoes');
     div.innerHTML = `<img src="https://flagcdn.com/40x30/${data.codigo}.png" srcset="https://flagcdn.com/40x30/${data.codigo}.png 2x" width="40" alt="${data.nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${data.nome}`;
@@ -83,3 +86,4 @@
   </script>
 </body>
 </html>
+
