@@ -127,3 +127,15 @@ ul {
   box-shadow: 0 6px 24px #185adb55;
   filter: brightness(1.08);
 }
+
+.grupo-posicao {
+  min-height: 38px;
+  padding: 4px 0 4px 8px;
+  border-bottom: 1px dashed #b3c6e7;
+  color: #b3c6e7;
+  font-size: 1rem;
+}
+.grupo-posicao:last-child {
+  border-bottom: none;
+}
+
