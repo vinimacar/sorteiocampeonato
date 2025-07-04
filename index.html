@@ -56,27 +56,6 @@
 
   <!-- Script -->
   <script src="script.js"></script>
-  <script>
-    // Exemplo de como a variável 'data' pode ser definida
-    var data = {
-      codigo: 'br',
-      nome: 'Brasil'
-    };
 
-    // Exemplo de uso da linha de código fornecida
-    var div = document.getElementById('area-selecoes');
-    div.innerHTML = `<img src="https://flagcdn.com/w40/${data.codigo}.png" srcset="https://flagcdn.com/w80/${data.codigo}.png 2x" width="40" alt="${data.nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/w40/un.png';"> ${data.nome}`;
-    
-    // Nova linha de código sugerida
-    html += `<div><img src="https://flagcdn.com/w40/${sel.codigo}.png" srcset="https://flagcdn.com/w80/${sel.codigo}.png 2x" width="40" alt="${sel.nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/w40/un.png';"> ${sel.nome}</div>`;
-
-    jogos.push(
-      `<img src="https://flagcdn.com/w40/${grupo[i].codigo}.png" srcset="https://flagcdn.com/w80/${grupo[i].codigo}.png 2x" width="40" alt="${grupo[i].nome}"> ${grupo[i].nome} x ` +
-      `<img src="https://flagcdn.com/w40/${grupo[j].codigo}.png" srcset="https://flagcdn.com/w80/${grupo[j].codigo}.png 2x" width="40" alt="${grupo[j].nome}"> ${grupo[j].nome}`
-    );
-
-    let html = "";
-    // ... seu código que usa html ...
-  </script>
 </body>
 </html>
