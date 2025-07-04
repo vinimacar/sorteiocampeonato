@@ -5,7 +5,7 @@ const selecoes = [
   { nome: "França", codigo: "fr" },
   { nome: "Itália", codigo: "it" },
   { nome: "Espanha", codigo: "es" },
-  { nome: "Inglaterra", codigo: "gb-eng" }, // correto para Flagcdn
+  { nome: "Inglaterra", codigo: "gb-eng" }, 
   { nome: "Portugal", codigo: "pt" },
   { nome: "Holanda", codigo: "nl" },
   { nome: "Bélgica", codigo: "be" },
@@ -90,7 +90,7 @@ function drop(ev) {
   div.draggable = true;
   div.dataset.nome = data.nome;
   div.dataset.codigo = data.codigo;
-  div.innerHTML = `<img src="bandeiras/${data.codigo}.png" width="40" alt="${data.nome}" class="me-2 rounded shadow-sm" onerror="this.onerror=null;this.src='bandeiras/un.png';"> ${data.nome}`;
+  div.innerHTML = `<img src="img/${data.codigo}.png" width="40" alt="${data.nome}" class="me-2 rounded shadow-sm" onerror="this.onerror=null;this.src='img/un.png';"> ${data.nome}`;
   div.ondragstart = drag;
   target.appendChild(div);
   target.classList.remove("dragover");
@@ -139,7 +139,7 @@ function mostrarGrupos() {
     col.className = "col-md-3";
     let html = `<div class="grupo"><h6>Grupo ${letras[idx]}</h6>`;
     grupo.forEach(sel => {
-      html += `<div><img src="bandeiras/${sel.codigo}.png" width="40" alt="${sel.nome}" onerror="this.onerror=null;this.src='bandeiras/un.png';"> ${sel.nome}</div>`;
+      html += `<div><img src="img/${sel.codigo}.png" width="40" alt="${sel.nome}" onerror="this.onerror=null;this.src='img/un.png';"> ${sel.nome}</div>`;
     });
     html += `</div>`;
     col.innerHTML = html;
@@ -164,8 +164,8 @@ function gerarTabela() {
     for (let i = 0; i < grupo.length; i++) {
       for (let j = i + 1; j < grupo.length; j++) {
         jogos.push(
-          `<img src="bandeiras/${grupo[i].codigo}.png" width="40" alt="${grupo[i].nome}" onerror="this.onerror=null;this.src='bandeiras/un.png';"> ${grupo[i].nome} x 
-           <img src="bandeiras/${grupo[j].codigo}.png" width="40" alt="${grupo[j].nome}" onerror="this.onerror=null;this.src='bandeiras/un.png';"> ${grupo[j].nome}`
+          `<img src="img/${grupo[i].codigo}.png" width="40" alt="${grupo[i].nome}" onerror="this.onerror=null;this.src='img/un.png';"> ${grupo[i].nome} x 
+           <img src="img/${grupo[j].codigo}.png" width="40" alt="${grupo[j].nome}" onerror="this.onerror=null;this.src='img/un.png';"> ${grupo[j].nome}`
         );
       }
     }
