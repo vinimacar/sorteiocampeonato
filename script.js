@@ -176,3 +176,27 @@ function gerarTabela() {
     tabelaDiv.innerHTML += html;
   });
 }
+
+function distribuirAutomaticamente() {
+  // Limpa todos os potes
+  for (let i = 1; i <= 4; i++) {
+    document.getElementById(`pote${i}`).innerHTML = "";
+  }
+  // Embaralha as seleções
+  const embaralhadas = [...selecoes].sort(() => Math.random() - 0.5);
+  // Distribui 8 seleções para cada pote
+  for (let i = 0; i < embaralhadas.length; i++) {
+    const poteNum = Math.floor(i / 8) + 1;
+    const sel = embaralhadas[i];
+    const div = document.createElement("div");
+    div.className = "card-selecao";
+    div.draggable = true;
+    div.ondragstart = drag;
+    div.dataset.nome = sel.nome;
+    div.dataset.codigo = sel.codigo;
+    div.innerHTML = `<img src="https://flagcdn.com/40x30/${sel.codigo}.png" width="40" alt="${sel.nome}" class="me-2 rounded shadow-sm" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${sel.nome}`;
+    document.getElementById(`pote${poteNum}`).appendChild(div);
+  }
+  // Limpa a área de seleções
+  document.getElementById("area-selecoes").innerHTML = "";
+}
