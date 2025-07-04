@@ -165,8 +165,8 @@ function gerarTabela() {
     for (let i = 0; i < grupo.length; i++) {
       for (let j = i + 1; j < grupo.length; j++) {
         jogos.push(
-          `<img src="https://flagcdn.com/40x30/${grupo[i].codigo}.png" width="40" alt="${grupo[i].nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${grupo[i].nome} x 
-           <img src="https://flagcdn.com/40x30/${grupo[j].codigo}.png" width="40" alt="${grupo[j].nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${grupo[j].nome}`
+          `<img src="https://flagcdn.com/40x30/${grupo[i].codigo}.png" width="40" alt="${grupo[i].nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${grupo[i].nome} x ` +
+          `${grupo[j].nome} <img src="https://flagcdn.com/40x30/${grupo[j].codigo}.png" width="40" alt="${grupo[j].nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';">`
         );
       }
     }
