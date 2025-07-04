@@ -65,12 +65,7 @@
   <!-- Script -->
   <script src="script.js"></script>
   <script>
-    // Exemplo de como a variável 'data' pode ser definida
-    var data = {
-      codigo: 'br',
-      nome: 'Brasil'
-    };
-
+  
     // Exemplo de uso da linha de código fornecida
     var div = document.getElementById('area-selecoes');
     div.innerHTML = `<img src="https://flagcdn.com/40x30/${data.codigo}.png" srcset="https://flagcdn.com/40x30/${data.codigo}.png 2x" width="40" alt="${data.nome}" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${data.nome}`;
