@@ -25,7 +25,6 @@ const selecoes = [
   { nome: "Marrocos", codigo: "ma", continente: "africa" },
   { nome: "Nigéria", codigo: "ng", continente: "africa" },
   { nome: "Camarões", codigo: "cm", continente: "africa" },
-  { nome: "Gana", codigo: "gh", continente: "africa" },
 
   { nome: "Japão", codigo: "jp", continente: "asia" },
   { nome: "Coreia do Sul", codigo: "kr", continente: "asia" },
