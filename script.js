@@ -53,6 +53,16 @@ window.onload = function() {
     pote.ondragenter = e => e.target.classList.add("dragover");
     pote.ondragleave = e => e.target.classList.remove("dragover");
   }
+
+  // Permitir drag nos grupos
+  const grupos = ["A","B","C","D","E","F","G","H"];
+  grupos.forEach(letra => {
+    const grupoDiv = document.getElementById(`grupo${letra}`);
+    grupoDiv.ondragover = allowDrop;
+    grupoDiv.ondrop = dropGrupo;
+    grupoDiv.ondragenter = e => e.target.classList.add("dragover");
+    grupoDiv.ondragleave = e => e.target.classList.remove("dragover");
+  });
 };
 
 function allowDrop(ev) {
@@ -81,6 +91,37 @@ function drop(ev) {
 
   // Remove todas as cópias dessa seleção
   const allCards = document.querySelectorAll(".card-selecao");
+  allCards.forEach(card => {
+    if (card.dataset.nome === data.nome) card.remove();
+  });
+
+  const div = document.createElement("div");
+  div.className = "card-selecao";
+  div.draggable = true;
+  div.dataset.nome = data.nome;
+  div.dataset.codigo = data.codigo;
+  div.innerHTML = `<img src="https://flagcdn.com/40x30/${data.codigo}.png" width="40" alt="${data.nome}" class="me-2 rounded shadow-sm" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${data.nome}`;
+  div.ondragstart = drag;
+  target.appendChild(div);
+  target.classList.remove("dragover");
+}
+
+// Função para dropar nos grupos
+function dropGrupo(ev) {
+  ev.preventDefault();
+  const target = ev.target.closest('.grupo-drop');
+  if (!target) return;
+
+  if (target.children.length >= 4) {
+    alert("Este grupo já tem 4 seleções.");
+    target.classList.remove("dragover");
+    return;
+  }
+
+  const data = JSON.parse(ev.dataTransfer.getData("text"));
+
+  // Remove todas as cópias dessa seleção dos grupos
+  const allCards = document.querySelectorAll(".grupo-drop .card-selecao");
   allCards.forEach(card => {
     if (card.dataset.nome === data.nome) card.remove();
   });
