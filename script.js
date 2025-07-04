@@ -1,40 +1,53 @@
 const selecoes = [
-  { nome: "Brasil", codigo: "br" },
-  { nome: "Argentina", codigo: "ar" },
-  { nome: "Alemanha", codigo: "de" },
-  { nome: "França", codigo: "fr" },
-  { nome: "Itália", codigo: "it" },
-  { nome: "Espanha", codigo: "es" },
-  { nome: "Inglaterra", codigo: "gb-eng" }, 
-  { nome: "Portugal", codigo: "pt" },
-  { nome: "Holanda", codigo: "nl" },
-  { nome: "Bélgica", codigo: "be" },
-  { nome: "Croácia", codigo: "hr" },
-  { nome: "Uruguai", codigo: "uy" },
-  { nome: "México", codigo: "mx" },
-  { nome: "Estados Unidos", codigo: "us" },
-  { nome: "Japão", codigo: "jp" },
-  { nome: "Coreia do Sul", codigo: "kr" },
-  { nome: "Senegal", codigo: "sn" },
-  { nome: "Marrocos", codigo: "ma" },
-  { nome: "Nigéria", codigo: "ng" },
-  { nome: "Austrália", codigo: "au" },
-  { nome: "Suíça", codigo: "ch" },
-  { nome: "Polônia", codigo: "pl" },
-  { nome: "Dinamarca", codigo: "dk" },
-  { nome: "Sérvia", codigo: "rs" },
-  { nome: "Colômbia", codigo: "co" },
-  { nome: "Chile", codigo: "cl" },
-  { nome: "Camarões", codigo: "cm" },
-  { nome: "Gana", codigo: "gh" },
-  { nome: "Equador", codigo: "ec" },
-  { nome: "Irã", codigo: "ir" },
-  { nome: "Arábia Saudita", codigo: "sa" },
-  { nome: "Canadá", codigo: "ca" }
+  { nome: "Brasil", codigo: "br", continente: "sulamerica" },
+  { nome: "Argentina", codigo: "ar", continente: "sulamerica" },
+  { nome: "Uruguai", codigo: "uy", continente: "sulamerica" },
+  { nome: "Colômbia", codigo: "co", continente: "sulamerica" },
+  { nome: "Chile", codigo: "cl", continente: "sulamerica" },
+  { nome: "Equador", codigo: "ec", continente: "sulamerica" },
+  { nome: "Peru", codigo: "pe", continente: "sulamerica" }, // se quiser adicionar mais
+
+  { nome: "Alemanha", codigo: "de", continente: "europa" },
+  { nome: "França", codigo: "fr", continente: "europa" },
+  { nome: "Itália", codigo: "it", continente: "europa" },
+  { nome: "Espanha", codigo: "es", continente: "europa" },
+  { nome: "Inglaterra", codigo: "gb-eng", continente: "europa" },
+  { nome: "Portugal", codigo: "pt", continente: "europa" },
+  { nome: "Holanda", codigo: "nl", continente: "europa" },
+  { nome: "Bélgica", codigo: "be", continente: "europa" },
+  { nome: "Croácia", codigo: "hr", continente: "europa" },
+  { nome: "Suíça", codigo: "ch", continente: "europa" },
+  { nome: "Polônia", codigo: "pl", continente: "europa" },
+  { nome: "Dinamarca", codigo: "dk", continente: "europa" },
+  { nome: "Sérvia", codigo: "rs", continente: "europa" },
+
+  { nome: "Senegal", codigo: "sn", continente: "africa" },
+  { nome: "Marrocos", codigo: "ma", continente: "africa" },
+  { nome: "Nigéria", codigo: "ng", continente: "africa" },
+  { nome: "Camarões", codigo: "cm", continente: "africa" },
+  { nome: "Gana", codigo: "gh", continente: "africa" },
+
+  { nome: "Japão", codigo: "jp", continente: "asia" },
+  { nome: "Coreia do Sul", codigo: "kr", continente: "asia" },
+  { nome: "Irã", codigo: "ir", continente: "asia" },
+  { nome: "Arábia Saudita", codigo: "sa", continente: "asia" },
+
+  { nome: "México", codigo: "mx", continente: "norte" },
+  { nome: "Estados Unidos", codigo: "us", continente: "norte" },
+  { nome: "Canadá", codigo: "ca", continente: "norte" },
+
+  { nome: "Austrália", codigo: "au", continente: "oceania" }
 ];
 
 window.onload = function() {
-  const area = document.getElementById("area-selecoes");
+  const areas = {
+    sulamerica: document.getElementById("area-selecoes-sulamerica"),
+    europa: document.getElementById("area-selecoes-europa"),
+    africa: document.getElementById("area-selecoes-africa"),
+    asia: document.getElementById("area-selecoes-asia"),
+    norte: document.getElementById("area-selecoes-norte"),
+    oceania: document.getElementById("area-selecoes-oceania")
+  };
   selecoes.forEach(sel => {
     const div = document.createElement("div");
     div.className = "card-selecao";
@@ -43,7 +56,7 @@ window.onload = function() {
     div.dataset.nome = sel.nome;
     div.dataset.codigo = sel.codigo;
     div.innerHTML = `<img src="https://flagcdn.com/40x30/${sel.codigo}.png" width="40" alt="${sel.nome}" class="me-2 rounded shadow-sm" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${sel.nome}`;
-    area.appendChild(div);
+    areas[sel.continente].appendChild(div);
   });
 
   for (let i = 1; i <= 4; i++) {
@@ -112,7 +125,10 @@ function dropGrupo(ev) {
   const target = ev.target.closest('.grupo-drop');
   if (!target) return;
 
-  if (target.children.length >= 4) {
+  // Procura a primeira posição vazia
+  const posicoes = Array.from(target.querySelectorAll('.grupo-posicao'));
+  const posVazia = posicoes.find(pos => !pos.querySelector('.card-selecao'));
+  if (!posVazia) {
     alert("Este grupo já tem 4 seleções.");
     target.classList.remove("dragover");
     return;
@@ -126,14 +142,23 @@ function dropGrupo(ev) {
     if (card.dataset.nome === data.nome) card.remove();
   });
 
+  // Remove do pote (ou de onde estiver)
+  const poteCard = document.querySelector(`.pote .card-selecao[data-nome="${data.nome}"]`);
+  if (poteCard) poteCard.remove();
+
+  // Cria o card da seleção
   const div = document.createElement("div");
   div.className = "card-selecao";
   div.draggable = true;
   div.dataset.nome = data.nome;
   div.dataset.codigo = data.codigo;
-  div.innerHTML = `<img src="https://flagcdn.com/40x30/${data.codigo}.png" width="40" alt="${data.nome}" class="me-2 rounded shadow-sm" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${data.nome}`;
   div.ondragstart = drag;
-  target.appendChild(div);
+  div.innerHTML = `<img src="https://flagcdn.com/40x30/${data.codigo}.png" width="40" alt="${data.nome}" class="me-2 rounded shadow-sm" onerror="this.onerror=null;this.src='https://flagcdn.com/40x30/un.png';"> ${data.nome}`;
+
+  // Limpa o texto da posição e adiciona o card
+  posVazia.innerHTML = "";
+  posVazia.appendChild(div);
+
   target.classList.remove("dragover");
 }
 
