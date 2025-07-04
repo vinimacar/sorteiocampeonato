@@ -145,6 +145,7 @@ function mostrarGrupos() {
     col.innerHTML = html;
     gruposDiv.appendChild(col);
   });
+  document.getElementById("grupos").innerHTML = html;
 }
 
 function gerarTabela() {
