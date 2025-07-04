@@ -5,7 +5,7 @@ const selecoes = [
   { nome: "Colômbia", codigo: "co", continente: "sulamerica" },
   { nome: "Chile", codigo: "cl", continente: "sulamerica" },
   { nome: "Equador", codigo: "ec", continente: "sulamerica" },
-  { nome: "Peru", codigo: "pe", continente: "sulamerica" }, // se quiser adicionar mais
+   // se quiser adicionar mais
 
   { nome: "Alemanha", codigo: "de", continente: "europa" },
   { nome: "França", codigo: "fr", continente: "europa" },
@@ -35,6 +35,7 @@ const selecoes = [
   { nome: "México", codigo: "mx", continente: "norte" },
   { nome: "Estados Unidos", codigo: "us", continente: "norte" },
   { nome: "Canadá", codigo: "ca", continente: "norte" },
+  { nome: "Costa Rica", codigo: "cr", continente: "norte" },
 
   { nome: "Austrália", codigo: "au", continente: "oceania" }
 ];
